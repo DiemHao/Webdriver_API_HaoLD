@@ -1,5 +1,6 @@
 package selenium;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -77,8 +78,38 @@ WebDriver driver;
 	}
 	
 	@Test
-	public void TC_05_CreatAnAcc() {
-		
+	public void TC_05_CreatAnAcc() throws InterruptedException {
+		//driver.findElement(By.xpath("//div[@class='footer']//a[text()='My Account']")).click();
+		driver.findElement(By.xpath("//header[@id='header']//span[text()='Account']")).click();
+		driver.findElement(By.xpath("//div[@id='header-account']//a[@title='My Account']")).click();
+		driver.findElement(By.xpath("//form[@id='login-form']//span[text()='Create an Account']")).click();
+		driver.findElement(By.xpath("//input[@id='firstname']")).sendKeys("Hao");
+		driver.findElement(By.xpath("//input[@id='lastname']")).sendKeys("Le");
+
+		// Create random to email address
+		Random email = new Random();
+		//Obtain a number between [0-100]
+		int n = email.nextInt(100);
+		// Add 1 to the result to get a number from the required range
+		// (i.e., [1 - 100]).
+		n += 1;
+		String emailAddress = "haole" + n + "@gmail.com";
+
+		driver.findElement(By.xpath("//input[@id='email_address']")).sendKeys(emailAddress);
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
+		driver.findElement(By.xpath("//input[@id='confirmation']")).sendKeys("123456");
+		driver.findElement(By.xpath("//form[@id='form-validate']//span[text()='Register']")).click();
+
+		String messageSuccessful = driver.findElement(By.xpath("//li[@class='success-msg']//span[text()='Thank you for registering with Main Website Store.']")).getText();
+		Assert.assertEquals(messageSuccessful, "Thank you for registering with Main Website Store.");
+
+		driver.findElement(By.xpath("//header[@id='header']//span[text()='Account']")).click();
+		driver.findElement(By.xpath("//div[@id='header-account']//a[@title='Log Out']")).click();
+
+		Thread.sleep(10000);
+
+		String homePageTitle = driver.getTitle();
+		Assert.assertEquals(homePageTitle, "Home page");
 	}
 
 	
