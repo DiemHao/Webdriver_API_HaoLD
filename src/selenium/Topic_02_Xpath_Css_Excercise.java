@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 public class Topic_02_Xpath_Css_Excercise {
 WebDriver driver;
+public String emailAddress = "haole" + ranDomEmail() + "@gmail.com";
 	
 	@BeforeTest
 	public void beforeTest() {
@@ -86,15 +87,6 @@ WebDriver driver;
 		driver.findElement(By.xpath("//input[@id='firstname']")).sendKeys("Hao");
 		driver.findElement(By.xpath("//input[@id='lastname']")).sendKeys("Le");
 
-		// Create random to email address
-		Random email = new Random();
-		//Obtain a number between [0-100]
-		int n = email.nextInt(100);
-		// Add 1 to the result to get a number from the required range
-		// (i.e., [1 - 100]).
-		n += 1;
-		String emailAddress = "haole" + n + "@gmail.com";
-
 		driver.findElement(By.xpath("//input[@id='email_address']")).sendKeys(emailAddress);
 		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
 		driver.findElement(By.xpath("//input[@id='confirmation']")).sendKeys("123456");
@@ -106,15 +98,25 @@ WebDriver driver;
 		driver.findElement(By.xpath("//header[@id='header']//span[text()='Account']")).click();
 		driver.findElement(By.xpath("//div[@id='header-account']//a[@title='Log Out']")).click();
 
-		Thread.sleep(10000);
-
-		String homePageTitle = driver.getTitle();
-		Assert.assertEquals(homePageTitle, "Home page");
+		// Dùng isDisplayed() Kiểm tra có hiện thị logo là đang ở home page, isDisplayed sẽ đợi timeOut
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='page-title']//img[contains(@src,'logo.png')]")).isDisplayed());
+		
 	}
 
 	
 	@AfterTest
 	public void afterTest() {
 		driver.quit();
+	}
+	
+	public int ranDomEmail() {
+		// Create random to email address
+		Random email = new Random();
+		//Obtain a number between [0-1000]
+		int n = email.nextInt(1000);
+		// Add 1 to the result to get a number from the required range
+		// (i.e., [1 - 100]).
+		n += 1;
+		return n;
 	}
 }
