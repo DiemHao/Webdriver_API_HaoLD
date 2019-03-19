@@ -2,7 +2,7 @@ package selenium;
 
 import org.testng.annotations.Test;
 
-import junit.framework.Assert;
+import org.testng.Assert;
 
 import org.testng.annotations.BeforeTest;
 
