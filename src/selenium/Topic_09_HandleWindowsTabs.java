@@ -123,7 +123,7 @@ public class Topic_09_HandleWindowsTabs {
 		
 		Assert.assertEquals(driver.getTitle(), "Google");
 		
-		//Switch về parent 
+		//Switch về parent window
 		for (String childID : allWindows) {
 			System.out.println("ID: " + childID);
 			if (childID.equals(parentID)) {
