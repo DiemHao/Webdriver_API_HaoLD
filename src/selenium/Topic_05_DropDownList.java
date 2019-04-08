@@ -1,8 +1,7 @@
 package selenium;
 
 import org.testng.annotations.Test;
-
-
+import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
@@ -13,13 +12,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.browserlaunchers.locators.FirefoxLocator;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
