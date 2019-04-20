@@ -25,9 +25,10 @@ public class Topic_13_Wait_Part2 {
 	@BeforeTest
 	public void beforeTest() {
 		driver = new FirefoxDriver();
-		waitExplicit = new WebDriverWait(driver, 30);
+		//waitExplicit = new WebDriverWait(driver, 30);
 	}
 
+	@Test
 	public void TC_01_AjaxLoading_WithoutExplicitWait() {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("http://demos.telerik.com/aspnet-ajax/ajaxloadingpanel/functionality/explicit-show-hide/defaultcs.aspx");
@@ -78,7 +79,7 @@ public class Topic_13_Wait_Part2 {
 		Assert.assertEquals(afterDateSelected, "Wednesday, April 10, 2019");
 	}
 
-	@Test
+	
 	public void TC02_FluentWait() {
 		driver.get("https://daominhdam.github.io/fluent-wait/");
 		WebElement countdount =  driver.findElement(By.xpath("//div[@id='javascript_countdown_time']"));

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Selenium Webdriver API" parallel="false">
+	<test name="Run test on Chrome browser">
+		<parameter name="browser" value="chrome" />
+		<!-- <groups> -->
+		<!-- <run> -->
+		<!-- <include name = "customer"/> -->
+		<!-- </run> -->
+		<!-- </groups> -->
+		<!-- <classes> -->
+		<!-- <class name="testng.TestNG_01_Annotations"/> -->
+		<!-- <class name="testng.TestNG_02_Groups"/> -->
+		<!-- </classes> -->
+		<classes>
+			<class name="testng.TestNG_04_MultiBrowse" />
+		</classes>
+	</test>
+	<test name="Run test on Firefox browser">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="testng.TestNG_04_MultiBrowse" />
+		</classes>
+	</test>
+	<test name="Run test on Chrome Headless browser">
+		<parameter name="browser" value="headless" />
+		<classes>
+			<class name="testng.TestNG_04_MultiBrowse" />
+		</classes>
+	</test>
+</suite> 

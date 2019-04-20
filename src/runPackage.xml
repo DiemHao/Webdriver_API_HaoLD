@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Run Package TestNG" parallel="tests" thread-count="3">
+
+	<parameter name="userName" value="auto_test_05@gmail.com" />
+	<parameter name="passWord" value="123123" />
+
+	<test name="Run test on Chrome browser">
+		<parameter name="browser" value="chrome" />
+		<packages>
+			<package name="testng"></package>
+		</packages>
+
+	</test>
+
+</suite> 

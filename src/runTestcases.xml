@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Selenium Webdriver API" parallel="false">
+	<test name="Run test on Chrome browser">
+		<parameter name="browser" value="chrome" />
+		<groups>
+		<run>
+		<include name = "customer"/>
+		</run>
+		</groups>
+		<classes>
+		<class name="testng.TestNG_01_Annotations"/>
+		<class name="testng.TestNG_02_Groups_Priority"/>
+		</classes>
+	</test>
+</suite> 

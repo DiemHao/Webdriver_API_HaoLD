@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test Suite 01" parallel="tests" thread-count="3">
+
+<parameter name="userName" value="auto_test_05@gmail.com" />
+<parameter name="passWord" value="123123" />
+
+	<test name="Run test on Firefox browser">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="testng.TestNG_04_2_MultiBrowse2" />
+		</classes>
+	</test>
+	
+</suite> 

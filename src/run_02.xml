@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test Suite 02" parallel="tests" thread-count="3">
+
+<parameter name="userName" value="auto_test_05@gmail.com" />
+<parameter name="passWord" value="123123" />
+
+	<test name="Run test on Chrome browser">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="testng.TestNG_04_2_MultiBrowse2" />
+		</classes>
+	</test>
+	
+</suite> 
